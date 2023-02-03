@@ -10,13 +10,19 @@ Vagrant.configure("2") do |config|
   # Do not automatically update the guest ddtitions
   config.vbguest.auto_update = false if Vagrant.has_plugin?("vagrant-vbguest")
 
-  # MySQL.
+  # MySQL
   config.vm.define "db1" do |db1|
     db1.vm.hostname = "db1.test"
     db1.vm.network :private_network, ip: "192.168.2.5"
   end
 
-  # MySQL.
+  # MySQL (optional third server used as second slave)
+  # config.vm.define "db3" do |db1|
+  #   db1.vm.hostname = "db3.test"
+  #   db1.vm.network :private_network, ip: "192.168.2.7"
+  # end
+
+  # MySQL
   config.vm.define "db2" do |db2|
     db2.vm.hostname = "db2.test"
     db2.vm.network :private_network, ip: "192.168.2.6"
