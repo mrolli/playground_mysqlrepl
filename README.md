@@ -15,7 +15,7 @@ The following is required if you want to use the vagrant provisioner to setup
 local VMs:
 
 * [Virtualbox](https://www.virtualbox.org)
-* Vagrant[https://vagrantup.com]
+* [Vagrant](https://vagrantup.com)
 
 But you can run the Ansible stuff on any hosts. Just use any other inventory
 file.
@@ -34,15 +34,15 @@ vagrant up
 
 ## Usage
 
-Two server are setup and configured with Ansible automatically when spinning up
+Two servers are setup and configured with Ansible automatically when spinning up
 the VMs with `vagrant up`.
 
-Using `vagrant ssh db1` or `vagrant ssh db2` let's you connect to either of the
+Using `vagrant ssh db1` or `vagrant ssh db2` lets you connect to either of the
 two VMs. By default host `db1` will be configured as the primary server and
 `db2` as a replication replica server.
 
 Look into `playbook/db/main.yml` for the details.
 
 You can manually run ansible anytime again using `ansible-playbook -i
-inventories/vagrant/inventory.ini configure.yml` in the project's toplevel
-directory.
+inventories/vagrant/inventory.ini configure.yml` in the project's top-level
+directory or by simply running `vagrant provision`.
