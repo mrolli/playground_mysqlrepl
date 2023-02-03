@@ -1,0 +1,18 @@
+---
+firewall_allowed_tcp_ports:
+  - "22"
+  - "3306"
+
+mysql_replication_user:
+  name: replication
+  password: secret
+
+mysql_databases:
+  - name: mytestdb
+    collation: utf8_general_ci
+    encoding: utf8
+  - name: mymb4testdb
+    collation: utf8mb4_unicode_ci
+    encoding: utf8mb4
+
+mysql_binlog_format: "mixed"
