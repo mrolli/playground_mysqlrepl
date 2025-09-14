@@ -13,3 +13,13 @@
   roles:
     - geerlingguy.firewall
     - geerlingguy.mysql
+
+- hosts: lamp_db_master
+  become: yes
+  tasks:
+    # fetch and import world database
+    - name: Fetch world databaes
+      ansible.builtin.get_url:
+        url: https://downloads.mysql.com/docs/world-db.tar.gz
+        dest: /tmp/world-db.sql.tar.gz
+        mode: 0644
